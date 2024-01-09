@@ -1,0 +1,16 @@
+{
+    "blogs": [
+      {
+        "id": "demystifying-react-hooks",
+        "repo": "eftpmc/keep",
+        "branch": "main",
+        "contentPath": "blogs/demystifying-react-hooks"
+      },
+      {
+        "id": "exploring-nodejs",
+        "repo": "eftpmc/portfolio",
+        "branch": "main",
+        "contentPath": "blogs/exploring-nodejs"
+      }
+    ]
+  }

@@ -30,7 +30,7 @@ export async function POST(req: Request) {
                         .process(content);
                     const contentHtml = processedContent.toString();
 
-                    return { blog: blog, id: fileName.replace('.md', ''), ...data, content: contentHtml };
+                    return { type: "post", blog: blog, id: fileName.replace('.md', ''), ...data, content: contentHtml };
                 }
             }));
 
