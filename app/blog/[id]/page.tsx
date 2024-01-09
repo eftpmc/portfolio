@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface BlogPost {
+  blog: string;
+  id: string;
   title: string;
   date: string;
   content: string;
@@ -13,6 +15,15 @@ export default function Blog({ params }: { params: { id: string } }) {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const router = useRouter();
   const { id } = params;
+
+  const buildGithubEditUrl = (blogId: string, postId: string) => {
+    const username = 'eftpmc';
+    const repo = 'portfolio';
+    const branch = 'main';
+    const filePath = `blogs/${blogId}/${postId}.md`;
+  
+    return `https://github.com/${username}/${repo}/blob/${branch}/${filePath}`;
+  };  
 
   useEffect(() => {
     if (id) {
@@ -47,6 +58,14 @@ export default function Blog({ params }: { params: { id: string } }) {
           <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
           <h3 className="text-xl font-bold mb-2">{post.date}</h3>
           <div className="prose max-w-none overflow-x-auto" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <a 
+            href={buildGithubEditUrl(post.blog, post.id)}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-blue-600 hover:text-blue-800"
+          >
+            Edit File
+          </a>
         </div>
       ))}
     </div>

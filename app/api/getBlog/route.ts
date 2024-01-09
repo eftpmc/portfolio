@@ -7,11 +7,11 @@ import html from 'remark-html';
 const blogsDirectory = path.join(process.cwd(), 'blogs');
 
 export async function POST(req: Request) {
-    const id = await req.json();
+    const blog = await req.json();
 
     try {
-        if (id && typeof id === 'string') {
-            const blogPath = path.join(blogsDirectory, id);
+        if (blog && typeof blog === 'string') {
+            const blogPath = path.join(blogsDirectory, blog);
             if (!fs.existsSync(blogPath) || !fs.lstatSync(blogPath).isDirectory()) {
                 return new Response(JSON.stringify({ message: 'Blog not found' }), { status: 404 });
             }
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
                         .process(content);
                     const contentHtml = processedContent.toString();
 
-                    return { id: fileName.replace('.md', ''), ...data, content: contentHtml };
+                    return { blog: blog, id: fileName.replace('.md', ''), ...data, content: contentHtml };
                 }
             }));
 
