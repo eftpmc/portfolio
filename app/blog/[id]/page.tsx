@@ -57,7 +57,7 @@ export default function Blog({ params }: { params: { id: string } }) {
           const commitsData = await fetchCommits(blogConfig, id);
 
           const combinedData = [...postsData, ...commitsData]
-            .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
           setBlogPosts(combinedData);
         } catch (error) {
@@ -123,20 +123,37 @@ const buildGithubEditUrl = (blogId: string, postId: string) => {
 };
 
 async function fetchCommits(blogConfig: BlogConfig, blogId: string) {
-  const response = await fetch(`https://api.github.com/repos/${blogConfig.repo}/commits`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch commits');
+  let allCommits: any[] = [];
+  let page = 1;
+  const perPage = 25; // Number of commits per page
+  let hasMore = true;
+
+  while (hasMore) {
+    const response = await fetch(`https://api.github.com/repos/${blogConfig.repo}/commits?page=${page}&per_page=${perPage}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch commits');
+    }
+    const commits = await response.json();
+
+    if (commits.length === 0 || commits.length < perPage) {
+      hasMore = false; // No more commits to fetch
+    } else {
+      page++; // Increment page number for next iteration
+    }
+
+    allCommits = allCommits.concat(commits.map(commit => ({
+      id: commit.sha,
+      title: 'Commit: ' + commit.commit.message,
+      date: commit.commit.author.date,
+      content: '',
+      type: 'commit',
+      blog: blogId,
+      commitUrl: `https://github.com/${blogConfig.repo}/commit/${commit.sha}`,
+      description: commit.commit.message,
+    })));
   }
-  const commits = await response.json();
-  return commits.map((commit: { sha: any; commit: { message: string; author: { date: any; }; }; }) => ({
-    id: commit.sha,
-    title: 'Commit: ' + commit.commit.message,
-    date: commit.commit.author.date,
-    content: '',
-    type: 'commit',
-    blog: blogId,
-    commitUrl: `https://github.com/${blogConfig.repo}/commit/${commit.sha}`,
-    description: commit.commit.message,
-  }));
+
+  return allCommits;
 }
+
 
