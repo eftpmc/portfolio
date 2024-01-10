@@ -85,13 +85,13 @@ export default function Blog({ params }: { params: { id: string } }) {
             <div>
               <p>{item.description}</p>
               <a
-              href={item.commitUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-800"
-            >
-              View commit
-            </a>
+                href={item.commitUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800"
+              >
+                View commit
+              </a>
             </div>
           ) : (
             <div className="prose max-w-none overflow-x-auto" dangerouslySetInnerHTML={{ __html: item.content }} />
@@ -141,16 +141,23 @@ async function fetchCommits(blogConfig: BlogConfig, blogId: string) {
       page++; // Increment page number for next iteration
     }
 
-    allCommits = allCommits.concat(commits.map((commit: { sha: any; commit: { message: string; author: { date: any; }; }; }) => ({
-      id: commit.sha,
-      title: 'Commit: ' + commit.commit.message,
-      date: commit.commit.author.date,
-      content: '',
-      type: 'commit',
-      blog: blogId,
-      commitUrl: `https://github.com/${blogConfig.repo}/commit/${commit.sha}`,
-      description: commit.commit.message,
-    })));
+    allCommits = allCommits.concat(commits.map((commit: { commit: { message: any; author: { date: any; }; }; sha: any; }) => {
+      const commitMessage = commit.commit.message;
+      const firstNewLineIndex = commitMessage.indexOf('\n');
+      const title = firstNewLineIndex === -1 ? commitMessage : commitMessage.substring(0, firstNewLineIndex).trim();
+      const description = firstNewLineIndex === -1 ? '' : commitMessage.substring(firstNewLineIndex + 1).trim();
+
+      return {
+        id: commit.sha,
+        title: title,
+        date: commit.commit.author.date,
+        content: '',
+        type: 'commit',
+        blog: blogId,
+        commitUrl: `https://github.com/${blogConfig.repo}/commit/${commit.sha}`,
+        description: description,
+      };
+    }));
   }
 
   return allCommits;
