@@ -141,7 +141,7 @@ async function fetchCommits(blogConfig: BlogConfig, blogId: string) {
       page++; // Increment page number for next iteration
     }
 
-    allCommits = allCommits.concat(commits.map(commit => ({
+    allCommits = allCommits.concat(commits.map((commit: { sha: any; commit: { message: string; author: { date: any; }; }; }) => ({
       id: commit.sha,
       title: 'Commit: ' + commit.commit.message,
       date: commit.commit.author.date,
