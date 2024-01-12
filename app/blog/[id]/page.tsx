@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface BlogPost {
   blog: string;
@@ -17,6 +18,7 @@ interface BlogPost {
 interface BlogConfig {
   id: string;
   repo: string;
+  repoUrl: string;
   branch: string;
   contentPath: string;
 }
@@ -70,13 +72,31 @@ export default function Blog({ params }: { params: { id: string } }) {
   }, [id, blogConfig]);
 
 
-  if (blogPosts.length === 0) return <div>Loading...</div>;
+  if (blogPosts.length === 0) return <div className="w-screen h-screen mx-auto p-4">
+    <div>Loading...</div>
+  </div>;
+
+  if (!blogConfig) {
+    return <div className="w-screen h-screen mx-auto p-4">Loading configuration...</div>;
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <button onClick={() => router.back()} className="mb-4 text-blue-600 hover:text-blue-800">
+      <button onClick={() => router.back()} className="mb-4 text-white-500 hover:text-purple-500">
         &larr; Back
       </button>
+      <div className="mx-auto max-w-2xl lg:mx-0">
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl font-display">
+          {id}
+        </h1>
+      </div>
+      <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+          <Link target="_blank" key="github" href={blogConfig.repoUrl}>
+            github <span aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
+      </div>
       {blogPosts.map((item, index) => (
         <div key={index} className="mb-6">
           <h1 className="text-3xl font-bold mb-2">{item.title}</h1>

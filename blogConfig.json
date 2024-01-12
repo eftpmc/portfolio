@@ -3,12 +3,14 @@
       {
         "id": "keep",
         "repo": "eftpmc/keep",
+        "repoUrl": "https://github.com/eftpmc/keep",
         "branch": "main",
         "contentPath": "blogs/keep"
       },
       {
         "id": "portfolio",
         "repo": "eftpmc/portfolio",
+        "repoUrl": "https://github.com/eftpmc/portfolio",
         "branch": "main",
         "contentPath": "blogs/portfolio"
       }
