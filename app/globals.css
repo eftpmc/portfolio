@@ -4,27 +4,44 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 235, 235, 235;
-    --background-start-rgb: 155, 35, 255;
-    --background-end-rgb: 55, 55, 200;
+    /* --background-start-rgb: 25, 25, 25;
+    --background-end-rgb: 15, 15, 15; */
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  }
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  overflow: hidden;
+}
+
+header, section, footer {
+  position: relative; /* Required for z-index to work */
+  z-index: 1; /* Higher than the video's z-index */
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
 .prose {
   word-wrap: break-word;
@@ -44,4 +61,3 @@ body {
   overflow-x: auto;
   white-space: nowrap;
 }
-

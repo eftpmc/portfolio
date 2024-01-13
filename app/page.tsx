@@ -11,19 +11,24 @@ const Home = () => {
         <p className="text-xl">web developer</p>
       </header>
 
-      <div className="hidden w-screen h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
+        className="absolute inset-0 animate-fade-in"
         quantity={100}
       />
       <section className="my-10">
-        <h2 className="text-3xl font-semibold mb-6">Projects</h2>
         <BlogList />
       </section>
 
-      <footer className="text-center my-10">
+      <footer className="text-center my-10 z-5">
         <p>&copy; {new Date().getFullYear()} ari. All rights reserved.</p>
-        <p>Connect with me on <Link className="text-blue-500" href='https://github.com/eftpmc'>github</Link></p>
+        <p>Connect with me on
+          <Link
+            className="text-blue-500"
+            target="_blank"
+            rel="noopener noreferrer"
+            href='https://github.com/eftpmc'> github
+          </Link>
+        </p>
       </footer>
     </div>
   );

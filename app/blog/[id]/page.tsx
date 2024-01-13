@@ -82,7 +82,7 @@ export default function Blog({ params }: { params: { id: string } }) {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <button onClick={() => router.back()} className="mb-4 text-white-500 hover:text-purple-500">
+      <button onClick={() => router.back()} className="mb-4 text-white-500 hover:text-blue-500">
         &larr; Back
       </button>
       <div className="mx-auto max-w-2xl lg:mx-0">

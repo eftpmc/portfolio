@@ -13,6 +13,13 @@
         "repoUrl": "https://github.com/eftpmc/portfolio",
         "branch": "main",
         "contentPath": "blogs/portfolio"
+      },
+      {
+        "id": "aritools",
+        "repo": "eftpmc/aritools",
+        "repoUrl": "https://github.com/eftpmc/aritools",
+        "branch": "main",
+        "contentPath": "blogs/aritools"
       }
     ]
   }
