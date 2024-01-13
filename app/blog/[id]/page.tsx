@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Loader2 } from "lucide-react";
 
 interface BlogPost {
   blog: string;
@@ -72,12 +73,20 @@ export default function Blog({ params }: { params: { id: string } }) {
   }, [id, blogConfig]);
 
 
-  if (blogPosts.length === 0) return <div className="w-screen h-screen mx-auto p-4">
-    <div>Loading...</div>
-  </div>;
+  if (blogPosts.length === 0) return (
+    <div className="flex justify-center items-center h-screen">
+      <Loader2 className="animate-spin mr-2 h-4 w-4" />
+      <span>Loading markdown and commits...</span>
+    </div>
+  );
 
   if (!blogConfig) {
-    return <div className="w-screen h-screen mx-auto p-4">Loading configuration...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Loader2 className="animate-spin mr-2 h-4 w-4" />
+        <span>Loading configuration...</span>
+      </div>
+    );
   }
 
   return (

@@ -1,9 +1,13 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
 import BlogList from '../components/BlogList';
 import Particles from "../components/Particles";
+import { Loader2 } from "lucide-react";
 
 const Home = () => {
+
   return (
     <div className="w-screen h-screen max-w-4xl mx-auto px-4">
       <header className="text-center my-12">
@@ -15,6 +19,7 @@ const Home = () => {
         className="absolute inset-0 animate-fade-in"
         quantity={100}
       />
+
       <section className="my-10">
         <BlogList />
       </section>
