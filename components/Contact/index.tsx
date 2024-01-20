@@ -6,7 +6,7 @@ const Contact = () => {
           {/* Information Section */}
           <div className="w-full px-4 mb-8 lg:w-1/2 lg:mb-0">
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white mb-8">
-              Let's discuss further.
+              Let&apos;s discuss further.
             </h2>
             <div className="flex mb-6">
               {/* Location Icon and Info */}
