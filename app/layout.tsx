@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
+import Particles from "../components/Particles";
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,10 +21,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           {children}
-          <video className="background-video" autoPlay loop muted>
+          <video className="background-video z-[-2]" autoPlay loop muted>
             <source src="/train.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          <Particles className="absolute inset-0 z-[-1] animate-fade-in" quantity={100} />
         </div>
       </body>
     </html>

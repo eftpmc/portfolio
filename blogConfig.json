@@ -2,24 +2,30 @@
     "blogs": [
       {
         "id": "keep",
+        "date": "11/01/2023",
         "repo": "eftpmc/keep",
         "repoUrl": "https://github.com/eftpmc/keep",
         "branch": "main",
-        "contentPath": "blogs/keep"
+        "contentPath": "blogs/keep",
+        "description": "Welcome to Keep, a personalized platform designed for self-expression and organization. Tailored for those seeking an intuitive way to manage thoughts and tasks, Keep offers a unique blend of functionality and creativity."
       },
       {
         "id": "portfolio",
+        "date": "01/01/2024",
         "repo": "eftpmc/portfolio",
         "repoUrl": "https://github.com/eftpmc/portfolio",
         "branch": "main",
-        "contentPath": "blogs/portfolio"
+        "contentPath": "blogs/portfolio",
+        "description": "Id ipsa nihil eum soluta vitae non quia dolorem et quaerat voluptatem ea nihil aliquam. Quo veritatis esse ut quas unde qui alias doloribus sit ullam dolores id ullam repellat sed neque atque est nihil quis."
       },
       {
         "id": "aritools",
+        "date": "06/01/2023",
         "repo": "eftpmc/aritools",
         "repoUrl": "https://github.com/eftpmc/aritools",
         "branch": "main",
-        "contentPath": "blogs/aritools"
+        "contentPath": "blogs/aritools",
+        "description": "Id ipsa nihil eum soluta vitae non quia dolorem et quaerat voluptatem ea nihil aliquam. Quo veritatis esse ut quas unde qui alias doloribus sit ullam dolores id ullam repellat sed neque atque est nihil quis."
       }
     ]
   }

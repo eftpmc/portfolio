@@ -1,39 +1,31 @@
-"use client"
-
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link'
-import BlogList from '../components/BlogList';
-import Particles from "../components/Particles";
-import { Loader2 } from "lucide-react";
+import React from 'react';
+import Link from 'next/link';
+import BlogList from '@/components/Projects';
+import Team from "@/components/Team";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
+import Blog from "@/components/Blog";
 
 const Home = () => {
-
   return (
     <div className="w-screen h-screen max-w-4xl mx-auto px-4">
+
       <header className="text-center my-12">
         <h1 className="text-5xl font-bold my-4">ari</h1>
-        <p className="text-xl">web developer</p>
+        <p className="text-xl">Web Developer</p>
       </header>
 
-      <Particles
-        className="absolute inset-0 animate-fade-in"
-        quantity={100}
-      />
+      <Team />
 
-      <section className="my-10">
-        <BlogList />
-      </section>
+      <Blog />
 
-      <footer className="text-center my-10 z-5">
+      <Testimonials />
+
+      <Contact />
+
+      <footer className="text-center my-10">
         <p>&copy; {new Date().getFullYear()} ari. All rights reserved.</p>
-        <p>Connect with me on
-          <Link
-            className="text-blue-500"
-            target="_blank"
-            rel="noopener noreferrer"
-            href='https://github.com/eftpmc'> github
-          </Link>
-        </p>
+        <p>Connect with me on <Link href='https://github.com/eftpmc'>github</Link></p>
       </footer>
     </div>
   );
