@@ -26,6 +26,15 @@
         "branch": "main",
         "contentPath": "blogs/aritools",
         "description": "Aritools was an entertainment platform developed with the purpose of making mainstream media more accessible. It dealt with all forms of entertainment, wether it be videos, books, or comics. It was discontinued because of the workload it demanded."
+      },
+      {
+        "id": "librari",
+        "date": "10/23/2023",
+        "repo": "eftpmc/librari",
+        "repoUrl": "https://github.com/eftpmc/librari",
+        "branch": "main",
+        "contentPath": "blogs/librari",
+        "description": "Librari is a small web app designed with the intention of providing users with offline accessibility to books. The way librari handles this, is through webscraping, converting online books into files accessible on mobile devices."
       }
     ]
   }
