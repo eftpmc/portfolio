@@ -19,17 +19,14 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
   }
 
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 mb-10">
-      <div
-        className="rounded-xl bg-white px-4 py-[30px] shadow-testimonial dark:bg-dark sm:px-[30px]"
-        data-wow-delay=".1s"
-      >
+    <div className="bg-white rounded-lg shadow wow fadeInUp group mb-10" data-wow-delay=".1s">
+      <div className='px-5 py-5'>
         <div className="mb-[18px] flex items-center gap-[2px]">
           {ratingIcons}
         </div>
 
         <p className="mb-6 text-gray-500 dark:text-dark-6">
-          “{content}
+          “{content}”
         </p>
 
         <div className="flex items-center gap-4">

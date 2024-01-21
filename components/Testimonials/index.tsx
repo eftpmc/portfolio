@@ -14,11 +14,11 @@ const testimonialData: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Margin Gesmu",
-    designation: "Founder @ UI Hunter",
+    name: "Amy Starnes",
+    designation: "Founder @ Fishsticks Coastal Coastal",
     content:
-      "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/team/zack.png",
+      "Every aspect of my website was thoughtfully designed and professionally created. He asked all the right questions to turn my business ideas into reality.",
+    image: "/images/placeholder.jpg",
     star: 5,
   },
   {
