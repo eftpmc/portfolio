@@ -16,7 +16,7 @@
         "repoUrl": "https://github.com/eftpmc/portfolio",
         "branch": "main",
         "contentPath": "blogs/portfolio",
-        "description": "Id ipsa nihil eum soluta vitae non quia dolorem et quaerat voluptatem ea nihil aliquam. Quo veritatis esse ut quas unde qui alias doloribus sit ullam dolores id ullam repellat sed neque atque est nihil quis."
+        "description": "This is my portfolio website."
       },
       {
         "id": "aritools",
@@ -25,7 +25,7 @@
         "repoUrl": "https://github.com/eftpmc/aritools",
         "branch": "main",
         "contentPath": "blogs/aritools",
-        "description": "Id ipsa nihil eum soluta vitae non quia dolorem et quaerat voluptatem ea nihil aliquam. Quo veritatis esse ut quas unde qui alias doloribus sit ullam dolores id ullam repellat sed neque atque est nihil quis."
+        "description": "Aritools was an entertainment platform developed with the purpose of making mainstream media more accessible. It dealt with all forms of entertainment, wether it be videos, books, or comics. It was discontinued because of the workload it demanded."
       }
     ]
   }

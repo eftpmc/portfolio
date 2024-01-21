@@ -37,8 +37,8 @@ const Testimonials = () => {
     <section className="bg-gray-1 dark:bg-dark-2 py-10">
       <div className="container px-4">
         <SectionTitle
-          title="What do our clients think?"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="What do my clients think?"
+          paragraph="These are legitimate reviews from clients I have worked with. The client's website is also available under projects."
           width="640px"
           center
         />

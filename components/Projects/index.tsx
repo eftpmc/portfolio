@@ -31,7 +31,7 @@ const Projects = () => {
         <div className="mb-[60px]">
           <SectionTitle
             title="My Projects"
-            paragraph="These are projects that I have worked on the most and spent the most time on. Smaller projects are not included to ensure quality projects."
+            paragraph="These are projects that I have put the most time into and best reflect my skills and expertise. Each project tackles a different challenge developmentally."
             width="640px"
             center
           />
