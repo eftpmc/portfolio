@@ -26,6 +26,7 @@ interface BlogPost {
 interface BlogConfig {
   id: string;
   date: string;
+  color: string;
   repo: string;
   repoUrl: string;
   branch: string;
@@ -58,10 +59,14 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
     );
   }
 
+  const dateStyle = {
+    backgroundColor: blogConfig.color,
+  };
+
   return (
     <div className="bg-white rounded-lg shadow wow fadeInUp group mb-10" data-wow-delay=".1s">
       <div className='px-5 py-5'>
-        <span className="mb-5 inline-block rounded bg-blue-500 px-4 py-1 text-center text-xs font-semibold leading-loose text-white">
+        <span className="mb-5 inline-block rounded px-4 py-1 text-center text-xs font-semibold leading-loose text-white" style={dateStyle}>
           {blogConfig.date}
         </span>
         <h3>
