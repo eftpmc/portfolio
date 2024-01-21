@@ -42,11 +42,12 @@ header, section, footer {
   height: 100vh;
   object-fit: cover;
   z-index: -2;
+  pointer-events: none;
 }
 
-.background-video::-webkit-media-controls {
+.background-video::-webkit-media-controls-panel {
   display: none !important;
-}
+  opacity: 1 !important;}
 
 .prose {
   word-wrap: break-word;
