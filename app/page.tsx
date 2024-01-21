@@ -23,9 +23,8 @@ const Home = () => {
 
       <Contact />
 
-      <footer className="text-center my-10">
-        <p>&copy; {new Date().getFullYear()} ari. All rights reserved.</p>
-        <p>Connect with me on <Link href='https://github.com/eftpmc'>github</Link></p>
+      <footer className="text-center py-10">
+        <p>&copy; {new Date().getFullYear()} ari. Made with React.</p>
       </footer>
     </div>
   );

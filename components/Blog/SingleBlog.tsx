@@ -60,18 +60,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
 
   return (
     <div className="bg-white rounded-lg shadow wow fadeInUp group mb-10" data-wow-delay=".1s">
-      <div className="mb-8 overflow-hidden rounded">
-        <Link href={`/blog/${id}`} aria-label="blog cover" className="block" key={id} passHref>
-          <Image
-            src={`/images/blog/${id}.jpg`}
-            alt="image"
-            className="w-full transition group-hover:rotate-6 group-hover:scale-125"
-            width={408}
-            height={272}
-          />
-        </Link>
-      </div>
-      <div className='px-10 pb-5'>
+      <div className='px-10 py-5'>
         <span className="mb-5 inline-block rounded bg-blue-500 px-4 py-1 text-center text-xs font-semibold leading-loose text-white">
           {blogConfig.date}
         </span>
