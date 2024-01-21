@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div>
           {children}
-          <video className="background-video z-[-2]" autoPlay loop muted>
+          <video className="background-video" autoPlay loop muted>
             <source src="/train.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
