@@ -3,50 +3,58 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Loader2 } from "lucide-react";
+import SectionTitle from "../Common/SectionTitle";
+import SingleProject from "./SingleProject";
 
-interface Project {
-    id: string;
-    title: string;
-    posts: { title: string; id: string; }[];
+interface Blog {
+  id: string;
+  title: string;
+  posts: { title: string; id: string; }[];
 }
 
 const Projects = () => {
-    const [blogs, setBlogs] = useState<Project[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('/api/getBlogs');
-            const data = await response.json();
-            setBlogs(data);
-        }
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('/api/getBlogs');
+      const data = await response.json();
+      setBlogs(data);
+    }
 
-        fetchData();
-    }, []);
+    fetchData();
+  }, []);
 
-    return (
-        <div className="flex flex-col items-center justify-center py-10">
-            <h1 className="text-4xl font-bold text-center my-10">Projects</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-                {blogs.length > 0 ? (
-                    blogs.map(blog => (
-                        <Link href={`/blog/${blog.id}`} key={blog.id} passHref>
-                            <div className="block border border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:text-blue-500 transition-colors cursor-pointer">
-                                <h2 className="text-xl font-semibold text-center">{blog.title}</h2>
-                            </div>
-                        </Link>
-                    ))
-                ) : (
-
-                    <div className="flex justify-center items-center text-center col-span-full">
-                        <Loader2 className="animate-spin mr-2 h-4 w-4" />
-                        <span>Loading markdown...</span>
-                    </div>
-                )}
-            </div>
+  return (
+    <section className="pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
+      <div className="container px-4">
+        <div className="mb-[60px]">
+          <SectionTitle
+            title="My Projects"
+            paragraph="These are projects that I have worked on the most and spent the most time on. Smaller projects are not included to ensure quality projects."
+            width="640px"
+            center
+          />
         </div>
-    );
+
+        <div className="-mx-4 flex flex-wrap">
+          {blogs.length > 0 ? (
+            blogs.map(blog => (
+              <div key={blog.id} className="w-full px-4 md:w-1/2 lg:w-1/3">
+                <SingleProject blog={blog} />
+              </div>
+            ))
+          ) : (
+
+            <div className="flex justify-center items-center text-center col-span-full">
+              <Loader2 className="animate-spin mr-2 h-4 w-4" />
+              <span>Loading markdown...</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
-
-
 
 export default Projects;

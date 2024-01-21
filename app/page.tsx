@@ -1,10 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import BlogList from '@/components/Projects';
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
-import Blog from "@/components/Blog";
+import Projects from "@/components/Projects";
 
 const Home = () => {
   return (
@@ -17,7 +16,7 @@ const Home = () => {
 
       <Team />
 
-      <Blog />
+      <Projects />
 
       <Testimonials />
 

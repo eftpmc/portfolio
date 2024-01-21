@@ -18,7 +18,7 @@ const Team = () => {
       id="team"
       className="overflow-hidden bg-gray-1 dark:bg-dark-2 lg:pb-[90px] lg:pt-[120px] py-10"
     >
-      <div className="container">
+      <div className="container px-4">
         <div className="mb-[60px]">
           <SectionTitle
             title="About Me"
