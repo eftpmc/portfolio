@@ -3,7 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { title } from 'process';
 
-const blogsDirectory = path.join(process.cwd(), 'blogs');
+const blogsDirectory = path.join(process.cwd(), 'projects');
 
 export async function GET() {
     try {

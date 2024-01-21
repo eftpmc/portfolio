@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const blogsDirectory = path.join(process.cwd(), 'blogs');
+const blogsDirectory = path.join(process.cwd(), 'projects');
 
 export async function POST(req: Request) {
     const blog = await req.json();

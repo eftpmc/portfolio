@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Loader2 } from "lucide-react";
 
-interface BlogPost {
+interface ProjectPost {
   blog: string;
   id: string;
   title: string;
@@ -16,7 +16,7 @@ interface BlogPost {
   description?: string;
 }
 
-interface BlogConfig {
+interface ProjectConfig {
   id: string;
   repo: string;
   repoUrl: string;
@@ -26,26 +26,26 @@ interface BlogConfig {
   description: string;
 }
 
-export default function Blog({ params }: { params: { id: string } }) {
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [blogConfig, setBlogConfig] = useState<BlogConfig | null>(null);
+export default function Project({ params }: { params: { id: string } }) {
+  const [projectPosts, setProjectPosts] = useState<ProjectPost[]>([]);
+  const [projectConfig, setProjectConfig] = useState<ProjectConfig | null>(null);
   const router = useRouter();
   const { id } = params;
 
   useEffect(() => {
-    async function fetchBlogConfig() {
+    async function fetchProjectConfig() {
       const response = await fetch('/api/getBlogConfig');
       const configData = await response.json();
-      const configForCurrentBlog = configData.blogs.find((config: BlogConfig) => config.id === id);
-      setBlogConfig(configForCurrentBlog);
+      const configForCurrentBlog = configData.blogs.find((config: ProjectConfig) => config.id === id);
+      setProjectConfig(configForCurrentBlog);
     }
 
-    fetchBlogConfig();
+    fetchProjectConfig();
   }, [id]);
 
   useEffect(() => {
-    if (id && blogConfig) {
-      const fetchBlogData = async function () {
+    if (id && projectConfig) {
+      const fetchProjectData = async function () {
         try {
           const response = await fetch('/api/getBlog', {
             method: 'POST',
@@ -59,30 +59,30 @@ export default function Blog({ params }: { params: { id: string } }) {
           }
           const postsData = await response.json();
 
-          const commitsData = await fetchCommits(blogConfig, id);
+          const commitsData = await fetchCommits(projectConfig, id);
 
           const combinedData = [...postsData, ...commitsData]
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-          setBlogPosts(combinedData);
+          setProjectPosts(combinedData);
         } catch (error) {
           console.error('Error fetching data:', error);
         }
       }
 
-      fetchBlogData();
+      fetchProjectData();
     }
-  }, [id, blogConfig]);
+  }, [id, projectConfig]);
 
 
-  if (blogPosts.length === 0) return (
+  if (projectPosts.length === 0) return (
     <div className="flex justify-center items-center h-screen">
       <Loader2 className="animate-spin mr-2 h-4 w-4" />
       <span>Loading markdown and commits...</span>
     </div>
   );
 
-  if (!blogConfig) {
+  if (!projectConfig) {
     return (
       <div className="flex justify-center items-center h-screen">
         <Loader2 className="animate-spin mr-2 h-4 w-4" />
@@ -103,18 +103,18 @@ export default function Blog({ params }: { params: { id: string } }) {
       </div>
       <div className="mx-auto my-10 max-w-2xl lg:mx-0 lg:max-w-none">
         <p className="mt-6 text-lg leading-8 text-zinc-300">
-          {blogConfig.description}
+          {projectConfig.description}
         </p>
-        <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-          <Link target="_blank" key="github" href={blogConfig.repoUrl}>
+        <div className="grid grid-cols-2 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+          <Link target="_blank" key="github" href={projectConfig.repoUrl}>
             github <span aria-hidden="true">&rarr;</span>
           </Link>
-          <Link target="_blank" key="github" href={blogConfig.websiteUrl}>
+          <Link target="_blank" key="github" href={projectConfig.websiteUrl}>
             website <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>
-      {blogPosts.map((item, index) => (
+      {projectPosts.map((item, index) => (
         <div key={index} className="mb-6">
           <h1 className="text-3xl font-bold mb-2">{item.title}</h1>
           <h3 className="text-xl font-bold mb-2">{new Date(item.date).toLocaleDateString()}</h3>
@@ -159,7 +159,7 @@ const buildGithubEditUrl = (blogId: string, postId: string) => {
   return `https://github.com/${username}/${repo}/blob/${branch}/${filePath}`;
 };
 
-async function fetchCommits(blogConfig: BlogConfig, blogId: string) {
+async function fetchCommits(blogConfig: ProjectConfig, blogId: string) {
   let allCommits: any[] = [];
   let page = 1;
   const perPage = 25; // Number of commits per page

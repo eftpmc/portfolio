@@ -66,7 +66,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
         </span>
         <h3>
           <Link
-            href={`/blog/${id}`}
+            href={`/project/${id}`}
             className="mb-4 inline-block text-xl font-semibold text-black hover:text-blue-500 sm:text-2xl lg:text-xl xl:text-2xl"
           >
             {id}
