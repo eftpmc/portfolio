@@ -5,6 +5,7 @@
         "date": "11/01/2023",
         "repo": "eftpmc/keep",
         "repoUrl": "https://github.com/eftpmc/keep",
+        "websiteUrl": "https://www.keepari.com/",
         "branch": "main",
         "contentPath": "blogs/keep",
         "description": "Welcome to Keep, a personalized platform designed for self-expression and organization. Tailored for those seeking an intuitive way to manage thoughts and tasks, Keep offers a unique blend of functionality and creativity."
@@ -14,6 +15,7 @@
         "date": "01/01/2024",
         "repo": "eftpmc/portfolio",
         "repoUrl": "https://github.com/eftpmc/portfolio",
+        "websiteUrl": "https://portfolio-eftpmc.vercel.app/",
         "branch": "main",
         "contentPath": "blogs/portfolio",
         "description": "This is my portfolio website."
@@ -23,6 +25,7 @@
         "date": "06/01/2023",
         "repo": "eftpmc/aritools",
         "repoUrl": "https://github.com/eftpmc/aritools",
+        "websiteUrl": "https://aritools.xyz/",
         "branch": "main",
         "contentPath": "blogs/aritools",
         "description": "Aritools was an entertainment platform developed with the purpose of making mainstream media more accessible. It dealt with all forms of entertainment, wether it be videos, books, or comics. It was discontinued because of the workload it demanded."
@@ -32,6 +35,7 @@
         "date": "10/23/2023",
         "repo": "eftpmc/librari",
         "repoUrl": "https://github.com/eftpmc/librari",
+        "websiteUrl": "https://librari-one.vercel.app/",
         "branch": "main",
         "contentPath": "blogs/librari",
         "description": "Librari is a small web app designed with the intention of providing users with offline accessibility to books. The way librari handles this, is through webscraping, converting online books into files accessible on mobile devices."

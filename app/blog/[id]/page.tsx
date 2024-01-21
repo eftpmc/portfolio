@@ -20,8 +20,10 @@ interface BlogConfig {
   id: string;
   repo: string;
   repoUrl: string;
+  websiteUrl: string;
   branch: string;
   contentPath: string;
+  description: string;
 }
 
 export default function Blog({ params }: { params: { id: string } }) {
@@ -99,10 +101,16 @@ export default function Blog({ params }: { params: { id: string } }) {
           {id}
         </h1>
       </div>
-      <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+      <div className="mx-auto my-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        <p className="mt-6 text-lg leading-8 text-zinc-300">
+          {blogConfig.description}
+        </p>
         <div className="grid grid-cols-1 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
           <Link target="_blank" key="github" href={blogConfig.repoUrl}>
             github <span aria-hidden="true">&rarr;</span>
+          </Link>
+          <Link target="_blank" key="github" href={blogConfig.websiteUrl}>
+            website <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </div>
