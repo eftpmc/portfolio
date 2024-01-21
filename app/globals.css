@@ -47,7 +47,12 @@ header, section, footer {
 
 .background-video::-webkit-media-controls-panel {
   display: none !important;
-  opacity: 1 !important;}
+  opacity: 1 !important;
+}
+
+.background-video::-webkit-media-controls-start-playback-button {
+  display: none;
+}
 
 .prose {
   word-wrap: break-word;
