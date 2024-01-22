@@ -8,7 +8,7 @@
         "repoUrl": "https://github.com/eftpmc/keep",
         "websiteUrl": "https://www.keepari.com/",
         "branch": "main",
-        "contentPath": "blogs/keep",
+        "contentPath": "projects/keep",
         "description": "Welcome to Keep, a personalized platform designed for self-expression and organization. Tailored for those seeking an intuitive way to manage thoughts and tasks, Keep offers a unique blend of functionality and creativity."
       },
       {
@@ -19,7 +19,7 @@
         "repoUrl": "https://github.com/eftpmc/portfolio",
         "websiteUrl": "https://portfolio-eftpmc.vercel.app/",
         "branch": "main",
-        "contentPath": "blogs/portfolio",
+        "contentPath": "projects/portfolio",
         "description": "This is my portfolio website."
       },
       {
@@ -30,7 +30,7 @@
         "repoUrl": "https://github.com/eftpmc/aritools",
         "websiteUrl": "https://aritools.xyz/",
         "branch": "main",
-        "contentPath": "blogs/aritools",
+        "contentPath": "projects/aritools",
         "description": "Aritools was an entertainment platform developed with the purpose of making mainstream media more accessible. It dealt with all forms of entertainment, wether it be videos, books, or comics. It was discontinued because of the workload it demanded."
       },
       {
@@ -41,8 +41,17 @@
         "repoUrl": "https://github.com/eftpmc/librari",
         "websiteUrl": "https://librari-one.vercel.app/",
         "branch": "main",
-        "contentPath": "blogs/librari",
+        "contentPath": "projects/librari",
         "description": "Librari is a small web app designed with the intention of providing users with offline accessibility to books. The way librari handles this, is through webscraping, converting online books into files accessible on mobile devices."
+      },
+      {
+        "id": "fishstickscoastal",
+        "date": "10/07/2023",
+        "color": "#30c7b5",
+        "websiteUrl": "https://librari-one.vercel.app/",
+        "branch": "main",
+        "contentPath": "projects/fishstickscoastal",
+        "description": "Fishsticks Coastal Crafts is a locally owned business on Hilton Head Island. I created a website for their business to help sell their crafts online. The goal of this website was to improve the business's profits and bring in more customers through the website."
       }
     ]
   }

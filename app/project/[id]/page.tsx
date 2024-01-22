@@ -18,8 +18,8 @@ interface ProjectPost {
 
 interface ProjectConfig {
   id: string;
-  repo: string;
-  repoUrl: string;
+  repo?: string;
+  repoUrl?: string;
   websiteUrl: string;
   branch: string;
   contentPath: string;
@@ -59,7 +59,10 @@ export default function Project({ params }: { params: { id: string } }) {
           }
           const postsData = await response.json();
 
-          const commitsData = await fetchCommits(projectConfig, id);
+          let commitsData = [];
+          if (projectConfig.repoUrl) {
+            commitsData = await fetchCommits(projectConfig, id);
+          }
 
           const combinedData = [...postsData, ...commitsData]
             .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -106,12 +109,14 @@ export default function Project({ params }: { params: { id: string } }) {
           {projectConfig.description}
         </p>
         <div className="grid grid-cols-2 gap-y-6 gap-x-8 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-          <Link target="_blank" key="github" href={projectConfig.repoUrl}>
-            github <span aria-hidden="true">&rarr;</span>
-          </Link>
-          <Link target="_blank" key="github" href={projectConfig.websiteUrl}>
-            website <span aria-hidden="true">&rarr;</span>
-          </Link>
+          {projectConfig.repoUrl && (
+            <Link className="text-blue-600 hover:text-blue-800" target="_blank" key="github" href={projectConfig.repoUrl}>
+              github <span aria-hidden="true">&rarr;</span>
+            </Link>
+          )}
+          <Link className="text-blue-600 hover:text-blue-800" target="_blank" key="website" href={projectConfig.websiteUrl}>
+              website <span aria-hidden="true">&rarr;</span>
+            </Link>
         </div>
       </div>
       {projectPosts.map((item, index) => (
